@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <!-- <link href="style.css" rel="stylesheet" /> -->
+</head>
+
+<body>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>
+    // var bezier = require('bezier-curve');
+    import bezier from('bezier-curve');
+
+    var points = [
+      [-1.0, 0.0],
+      [-0.5, 0.5],
+      [0.5, -0.5],
+      [1.0, 0.0]
+    ];
+
+    for (var t = 0; t < 1; t += 0.01) {
+      var point = bezier(t, points);
+    }
+  </script>
+
+  <h3 align="center">Examples</h3>
+
+  <div style='
+    border: 1px solid orange;
+    background-color: gray;
+    width: 600px;
+    height: 480px;
+  '>
+    <canvas width="600" height="480" background="#ddd" id="myCanvas" onclick="draw(event)"></canvas>
+  </div>
+
+
+
+  <script>
+    var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext("2d");
+    var myArray = [];
+
+    function draw(event) {
+      var coords = [event.clientX, event.clientY];
+      xpos = coords[0];
+      ypos = coords[1];
+
+      myArray.push({
+        x: coords[0],
+        y: coords[1]
+      });
+
+      if (myArray.length > 1) {
+        for (i = 0; i < myArray.length - 1; i++) {
+          context.beginPath();
+          context.moveTo(myArray[i].x, myArray[i].y);
+          context.lineTo(myArray[i + 1].x, myArray[i + 1].y);
+          context.stroke();
+        }
+      }
+
+    }
+  </script>
+
+
+
+
+
+</body>
+
+</html>
