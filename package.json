@@ -2,7 +2,7 @@
   "name": "bezier-curve-testing",
   "version": "1.0.0",
   "description": "testing bezier-curve",
-  "main": "index.js",
+  "private": "true",
   "scripts": {
     "test": "test"
   },
@@ -13,6 +13,12 @@
   "author": "jgg",
   "license": "MIT",
   "dependencies": {
-    "bezier-curve": "^1.0.0"
+    "bezier-curve": "^1.0.0",
+    "lodash": "^4.17.21"
+  },
+  "type": "module",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   }
 }
